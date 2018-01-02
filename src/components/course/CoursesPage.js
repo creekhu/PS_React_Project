@@ -8,15 +8,23 @@ import { browserHistory } from 'react-router';
 class CoursesPage extends React.Component {
 	constructor(props, context) {
 		super(props, context);
-		this.redirectToAddCoursePage = this.redirectToAddCoursePage.bind(this);
-	}
 
-	courseRow(course, index) {
-		return <div key={index}>{course.title}</div>;
+		this.redirectToAddCoursePage = this.redirectToAddCoursePage.bind(this);
+		this.deleteCourse = this.deleteCourse.bind(this);
 	}
 
 	redirectToAddCoursePage() {
 		browserHistory.push('/course');
+	}
+
+	deleteCourse(courseId) {
+		console.log(courseId);
+		this.props.actions.deleteCourse(courseId)
+			.then(courses => {
+				console.log('hello');
+			}).catch(error => {
+				throw(error);
+			});
 	}
 
 	render() {
@@ -30,7 +38,9 @@ class CoursesPage extends React.Component {
 					value="Add course"
 					className="btn btn-primary"
 					onClick={this.redirectToAddCoursePage} />
-				<CourseList courses = {courses} />
+				<CourseList 
+					courses = {courses} 
+					handleDelete = {this.deleteCourse} />
 			</div>
 		);
 	}
