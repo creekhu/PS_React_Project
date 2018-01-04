@@ -5,6 +5,8 @@ import HomePage from './components/home/HomePage';
 import AboutPage from './components/about/AboutPage';
 import CoursesPage from './components/course/CoursesPage';
 import ManageCoursePage from './components/course/ManageCoursePage'; //eslint-disable-line import/no-named-as-default
+import AuthorPage from './components/author/AuthorPage';
+import ManageAuthorPage from './components/author/ManageAuthorPage';
 
 //App component will always be loaded 
 //Based on the routing, pass different components to App
@@ -15,6 +17,9 @@ export default (
 		<Route path="courses" component={CoursesPage} />
 		<Route path="course" component={ManageCoursePage} />
 		<Route path="course/:id" component={ManageCoursePage} />
+		<Route path="authors" component={AuthorPage} />
+		<Route path="author" component={ManageAuthorPage} />
+		<Route path="author/:id" component={ManageAuthorPage} />
 		<Route path="about" component={AboutPage} />
 	</Route>
 );

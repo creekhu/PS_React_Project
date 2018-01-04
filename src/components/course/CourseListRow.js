@@ -7,7 +7,7 @@ const CourseListRow = ({course, handleDelete}) => {
       <td>
         <button 
             className="btn btn-primary"
-            onClick={() => {handleDelete(course.id)}}>
+            onClick={() => {handleDelete(course.id);}}>
                 Delete
         </button>
         </td>
